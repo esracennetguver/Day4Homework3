@@ -1,0 +1,36 @@
+import Abstract.GamerCheckService;
+import Abstract.GamerService;
+import Entities.Gamer;
+
+public class GamerManager implements GamerService {
+    private GamerCheckService gamerCheckService;
+
+    public GamerManager(GamerCheckService gamerCheckService) {
+        this.gamerCheckService = gamerCheckService;
+    }
+
+    public void add(Gamer gamer) {
+        try {
+            if (GamerCheckService.checkIfRealPerson(gamer)){
+                System.out.println("User successfully added");
+            }else
+                System.out.println("Not a valid Person");
+        }
+        catch (Exception e){
+            System.out.println("Not a valid Person");
+        }
+
+    }
+
+    @Override
+    public void update(Gamer gamer) {
+        System.out.println("User successfully updated");
+    }
+
+    @Override
+    public void delete(Gamer gamer) {
+        System.out.println("User successfully deleted");
+    }
+
+
+}
